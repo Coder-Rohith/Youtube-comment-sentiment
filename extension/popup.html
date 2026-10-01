@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>Comment sentiment</title></head>
+<body>
+  <main>
+    <header><div class="brand-mark">✦</div><div><p class="eyebrow">YOUTUBE ANALYTICS</p><h1>Comment sentiment</h1></div></header>
+    <details class="settings"><summary>Connection settings</summary><label>API endpoint <input id="endpoint" type="url" aria-label="API endpoint"></label></details>
+    <button id="analyse"><span>Analyse comments</span><span class="button-arrow">→</span></button>
+    <p id="status" role="status">Ready to analyse this video.</p>
+    <section id="dashboard" hidden>
+      <div class="headline-card"><div><p class="card-label">COMMENTS ANALYSED</p><strong id="total"></strong><span>live audience signals</span></div><div id="score-orb" class="score-orb" title="Mean positive probability minus mean negative probability, scaled from -100 to +100."><b id="score">—</b><small id="score-caption">sentiment index</small></div></div>
+      <p id="model" class="model"></p>
+      <div class="section-heading"><h2>Sentiment balance</h2><span id="dominant"></span></div>
+      <div id="bars" class="bars" aria-label="Sentiment distribution"></div>
+      <aside id="neutral-insight" class="neutral-insight" hidden><div><b>Neutral insight</b><span>Heuristic grouping · not model classes</span></div><div id="neutral-contexts" class="neutral-contexts"></div></aside>
+      <div class="section-heading"><h2>Model confidence</h2><span>mean probability</span></div><div id="probability" class="probability" aria-label="Probability distribution"></div><div class="probability-labels"><span>Negative</span><span>Neutral</span><span>Positive</span></div>
+      <div class="confidence-ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+      <div class="section-heading"><h2>Audience spectrum</h2><span>sentiment index −100 to +100</span></div><div class="spectrum-wrap"><span class="y-axis">COMMENT DENSITY</span><canvas id="spectrum" width="720" height="132" aria-label="Each dot is one comment. Vertical stacking shows density at that sentiment score."></canvas></div><p class="spectrum-help">Each dot is one comment. Dots stack vertically when more comments share a similar sentiment score.</p>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body></html>

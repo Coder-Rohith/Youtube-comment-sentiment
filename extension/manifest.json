@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Comment Sentiment",
+  "version": "1.0.0",
+  "description": "Analyse the sentiment of YouTube comments with a local API.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1:8000/*", "http://localhost:8000/*"],
+  "action": {"default_title": "Comment sentiment", "default_popup": "popup.html"},
+  "background": {"service_worker": "background.js", "type": "module"},
+  "content_scripts": [{"matches": ["*://www.youtube.com/watch*", "*://www.youtube.com/shorts/*"], "js": ["content.js"]}],
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'self'"}
+}
